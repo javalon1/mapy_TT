@@ -48,13 +48,52 @@ public class App
         food.put("HALAL", halal);
         food.put("KOSZERNE", koszerne);
 
-        System.out.println(food);
+   //     System.out.println(food);
 
-        for(Map.Entry<String, List<String>> m: food.entrySet()){
+  /*      for(Map.Entry<String, List<String>> m: food.entrySet()){
             System.out.println(m.getKey());
             for(String item: m.getValue()) {
                 System.out.println("     -"+item);
-            }      }
+         }
+
+    }
+*/
+            Map<student, List<List<String>>> foodMenu = new HashMap<>();
+
+            student student1 = new student("Jan", "Kowalski", 1);
+            student student2 = new student("Zdzichu", "Nowak", 2);
+
+            List<List<String>> dni = new ArrayList<>();
+            List<String> dania = new ArrayList<>();
+
+            dania.add("JAJKA");
+            dania.add("MAKARON");
+            dania.add("RYBA");
+
+            dni.add(dania);
+
+            List<String> daniaWtorek = new ArrayList<>();
+            daniaWtorek.add("POMIDOROWA");
+            daniaWtorek.add("RYŻ");
+
+            dni.add(daniaWtorek);
+
+            foodMenu.put(student1,dni);
+
+            for(Map.Entry<student, List<List<String>>> mapData: foodMenu.entrySet()){
+                System.out.println(mapData.getKey().getName()+" "+mapData.getKey().getLastname());
+                for (List<String> mapDataDni:mapData.getValue()){
+                    for(String str:mapDataDni){
+                        System.out.println(str);
+                    }
+                    System.out.println("====================");
+                }
+            }
+
+
+
+
+
 
     }
 }
